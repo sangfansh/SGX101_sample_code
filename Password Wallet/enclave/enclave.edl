@@ -37,11 +37,7 @@ enclave {
 
     // define OCALLs
     untrusted {
-
-        void ocall_debug_print(
-            [in, string]const char* str
-        );
-
+    
         int ocall_save_wallet(
             [in, size=sealed_size]const uint8_t* sealed_data, 
             size_t sealed_size

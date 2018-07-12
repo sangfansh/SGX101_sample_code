@@ -20,7 +20,6 @@ void error_print(const char* str) {
 
 void print_wallet(const wallet_t* wallet) {
     printf("\n-----------------------------------------\n\n");
-    printf("%s v%s\n", APP_NAME, VERSION);
     printf("Simple password wallet based on Intel SGX.\n\n");
     printf("Number of items: %lu\n\n", wallet->size);
     for (int i = 0; i < wallet->size; ++i) {

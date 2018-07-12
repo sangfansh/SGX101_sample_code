@@ -1,7 +1,6 @@
 #include "enclave_t.h"
 #include "string.h"
 
-#include "debug.h"
 #include "enclave.h"
 #include "wallet.h"
 

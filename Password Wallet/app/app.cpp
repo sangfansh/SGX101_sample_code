@@ -7,7 +7,6 @@
 
 #include "app.h"
 #include "utils.h"
-#include "debug.h"
 #include "wallet.h"
 #include "enclave.h"
 

@@ -1,0 +1,57 @@
+enclave {
+
+    // includes
+    include "wallet.h"
+
+
+    // define ECALLs
+    trusted {
+
+        public int ecall_create_wallet(
+            [in, string]const char* master_password
+        );
+
+        public int ecall_show_wallet(
+            [in, string]const char* master_password, 
+            [out, size=wallet_size] wallet_t* wallet,
+            size_t wallet_size
+        );
+
+        public int ecall_change_master_password(
+            [in, string]const char* old_password, 
+            [in, string]const char* new_password
+        );
+
+        public int ecall_add_item(
+            [in, string]const char* master_password, 
+            [in, size=item_size]const item_t* item,
+            size_t item_size
+        );
+
+        public int ecall_remove_item(
+            [in, string]const char* master_password, 
+            int index
+        );
+    };
+
+
+    // define OCALLs
+    untrusted {
+
+        void ocall_debug_print(
+            [in, string]const char* str
+        );
+
+        int ocall_save_wallet(
+            [in, size=sealed_size]const uint8_t* sealed_data, 
+            size_t sealed_size
+        );
+
+        int ocall_load_wallet(
+            [out, size=sealed_size]uint8_t* sealed_data, 
+            size_t sealed_size
+        );
+
+        int ocall_is_wallet(void);
+    };
+};
